@@ -40,7 +40,7 @@ class FictionalClientFactory
 
         return null === $cache
             ? $fallbackClient
-            : new SocialClientCacheDecorator($fallbackClient, $cache, self::FICTIONAL_CACHE_KEY);
+            : new SocialClientCacheDecorator($fallbackClient, $cache, self::FICTIONAL_CACHE_KEY, $_ENV['CACHE_TTL']);
     }
 
     /**
