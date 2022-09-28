@@ -112,7 +112,7 @@ class FictionalDriver implements SocialDriverInterface
             ]
         );
 
-        return \GuzzleHttp\json_decode($response, true);
+        return \GuzzleHttp\Utils::jsonDecode($response, true);
     }
 
     /**
@@ -128,7 +128,7 @@ class FictionalDriver implements SocialDriverInterface
         ];
 
         $response = $this->client->authRequest(self::REGISTER_TOKEN_URI, $userData);
-        $response = \GuzzleHttp\json_decode($response, true);
+        $response = \GuzzleHttp\Utils::jsonDecode($response, true);
 
         $token = $response['data']['sl_token'] ?? null;
         if (null === $token) {

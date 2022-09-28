@@ -120,7 +120,7 @@ class FictionalClient implements SocialClientInterface
      */
     protected function isTokenInvalid(ServerException $exception): bool
     {
-        $response = \GuzzleHttp\json_decode(
+        $response = \GuzzleHttp\Utils::jsonDecode(
             $exception->getResponse()->getBody()->getContents(),
             true
         );
